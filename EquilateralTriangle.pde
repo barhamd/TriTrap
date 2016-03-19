@@ -1,10 +1,10 @@
 class EquilateralTriangle {
 
-  int l; // Length of each side
+  float l; // Length of each side
   float x; // x coordinate
   float y; // y coordinate
 
-  EquilateralTriangle(float xpos, float ypos, int side_length) {
+  EquilateralTriangle(float xpos, float ypos, float side_length) {
     l = side_length;
     x = xpos;
     y = ypos;
