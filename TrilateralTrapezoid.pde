@@ -1,8 +1,8 @@
 class TrilateralTrapezoid {
 
   float l; // Length of 'top' 3 sides
-  float x; // x coordinate
-  float y; // y coordinate
+  float x; // x coordinate of center
+  float y; // y coordinate of center
 
   TrilateralTrapezoid(float xpos, float ypos, float side_length) {
     l = side_length;
@@ -10,8 +10,16 @@ class TrilateralTrapezoid {
     y = ypos;
   }
 
+  float vertice1_x() {
+    return x - l;
+  }
+
+  float vertice1_y() {
+    return y;
+  }
+
   float vertice2_x() {
-    return x + (2 * l);
+    return x + l;
   }
 
   float vertice2_y() {
@@ -19,7 +27,7 @@ class TrilateralTrapezoid {
   }
 
   float vertice3_x() {
-    return x + (1.5 * l);
+    return x + (0.5 * l);
   }
 
   float vertice3_y() {
@@ -27,7 +35,7 @@ class TrilateralTrapezoid {
   }
 
   float vertice4_x() {
-    return x + (l/2);
+    return x - (l/2);
   }
 
   float vertice4_y() {
@@ -39,6 +47,6 @@ class TrilateralTrapezoid {
   }
 
   void display() {
-    quad(x, y, vertice2_x(), vertice2_y(), vertice3_x(), vertice3_y(), vertice4_x(), vertice4_y());
+    quad(vertice1_x(), vertice1_y(), vertice2_x(), vertice2_y(), vertice3_x(), vertice3_y(), vertice4_x(), vertice4_y());
   }
 }
