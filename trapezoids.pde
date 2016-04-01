@@ -7,6 +7,7 @@ float side_length = 100;
 void setup() {
   size(700, 700);
   background(255);
+  noStroke();
 
   int count = width/columns;
   triangle = new EquilateralTriangle(0, 0, side_length);
@@ -24,13 +25,14 @@ void setup() {
   }
 }
 void draw_trapezoids(){
+  trapezoid.l = trapezoid.l - .01;
+  fill(0);
   draw_trap_1();
   draw_trap_2();
   draw_trap_3();
 }
 
 void draw_trap_1(){
-  fill(236, 163, 195);
   pushMatrix();
   translate(side_length/3, 0);
   trapezoid.display();
@@ -38,7 +40,6 @@ void draw_trap_1(){
 }
 
 void draw_trap_2(){
-  fill(195, 236, 163);
   pushMatrix();
   translate(side_length, 0);
   rotate(radians(-120));
@@ -48,7 +49,6 @@ void draw_trap_2(){
 }
 
 void draw_trap_3(){
-  fill(163, 195, 236);
   pushMatrix();
   rotate(radians(120));
   translate(-side_length, 0);
