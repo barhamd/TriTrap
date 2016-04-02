@@ -17,19 +17,26 @@ void setup() {
     for(int x = 0; x < count; x++){
       pushMatrix();
       translate(x*side_length, y*triangle.height());
-      fill(255);
-      triangle.display();
-      draw_trapezoids();
+      draw_tritrap();
+      rotate(PI);
+      translate(side_length/2, triangle.height());
+      draw_tritrap();
       popMatrix();
     }
   }
 }
-void draw_trapezoids(){
-  trapezoid.l = trapezoid.l - .01;
+
+void draw_tritrap(){
+  fill(255);
+  triangle.display();
   fill(0);
+  draw_trapezoids();
+}
+void draw_trapezoids(){
   draw_trap_1();
   draw_trap_2();
   draw_trap_3();
+  trapezoid.l = trapezoid.l - .01;
 }
 
 void draw_trap_1(){
