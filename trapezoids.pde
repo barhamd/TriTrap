@@ -17,6 +17,9 @@ void setup() {
     for(int x = 0; x < count; x++){
       pushMatrix();
       translate(x*side_length, y*triangle.height());
+      if (y % 2 == 0) {
+        translate(-side_length/2, 0);
+      }
       draw_tritrap();
       rotate(PI);
       translate(side_length/2, triangle.height());
