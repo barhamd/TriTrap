@@ -1,19 +1,20 @@
+import processing.pdf.*;
 EquilateralTriangle triangle;
 TrilateralTrapezoid trapezoid;
 
-int columns = 7;
+int columns = 16;
 float side_length = 100;
 
 void setup() {
-  size(700, 700);
+  /*size(700, 1400);*/
+  size(700, 2800, PDF, "long.pdf");
   background(255);
-  noStroke();
 
   int count = width/columns;
   triangle = new EquilateralTriangle(0, 0, side_length);
   trapezoid = new TrilateralTrapezoid(0, 0, side_length/3);
 
-  for(int y = 1; y < 9; y++){
+  for(int y = 1; y < 36; y++){
     for(int x = 0; x < count; x++){
       pushMatrix();
       translate(x*side_length, y*triangle.height());
@@ -30,9 +31,11 @@ void setup() {
 }
 
 void draw_tritrap(){
-  fill(255);
-  triangle.display();
+  stroke(255);
   fill(0);
+  triangle.display();
+  noStroke();
+  fill(255);
   draw_trapezoids();
 }
 void draw_trapezoids(){
